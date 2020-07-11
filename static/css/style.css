@@ -1,0 +1,248 @@
+
+* {
+    box-sizing: border-box;
+    font-family: Ubuntu, sans-serif;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }  
+
+html body{
+    height: 100%;
+    width: 100%;
+    margin: 10px, 10px;
+    padding: 10px, 10px;
+    box-sizing: border-box;
+    background-color:lightgray;
+}
+.navbar-brand{
+    margin-right:3rem;
+    margin-left:3rem;
+    margin-bottom:0.3rem;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+.navbar-brand:hover{
+    background-color:darkgray;
+    border-color: white;
+    border-style:solid;
+}
+
+/* .navbar-dropdown:hover{
+    background-color:darkgray;
+    border-color: white;
+    border-style:solid;
+} */
+
+/* navbar active navbar menu items */
+.navbar-light .navbar-nav .active>.nav-link,
+ .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .nav-link.show,
+   .navbar-light .navbar-nav .show>.nav-link{
+    color: white;
+}
+
+/* latitude navbar home button */
+.navbar-light .navbar-brand {
+    color: white;
+    background-color:#23415c;
+    border-color: white;
+    border-style: solid;
+}
+
+/* dropdown menu */
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: white;
+}
+.navbar{
+    background-color: #23415c;
+    border: 30px;
+}
+
+.middle-container{ 
+    padding: 10px;
+    margin: 10px;
+} 
+
+.page-body {
+    width: 100%;
+    background-color: white;
+    color: #23415c;
+	margin-top: 40px;
+	margin-bottom: 40px;
+    padding: 10px 30px 10px;
+}
+
+
+.visual-body {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px 30px 10px;
+	color: white;
+	background-color:white;
+}
+.page-title, .visual-title {
+	padding-top: 15px; 
+	padding-left: 4px;
+	color: #23415c;
+	font-size: 26px;
+	font-weight: bold;
+	font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+.table{
+    background-color:white;
+     /* width:95%;   */
+    /* justify-content:center; */
+    /* padding:30px; */
+    /* margin:30px; */
+    /* display:block; */
+    /* align-items:center; */
+}
+
+.visual-graph {
+    border-style: solid;
+    border-color: darkblue;
+    width: 150px;
+    height: 150px;
+}
+
+
+.visual-graph:hover{
+    border-style: solid;
+    border-color: darkblue;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.footer-container{
+    display: flex;
+    flex-basis: 100%;
+    min-height: 70px;
+    background-color: #23415c;
+    color: white;
+    align-items: center;
+    font-size: 14px;
+    justify-content: space-evenly;
+    flex-flow: block;
+    padding: 0, 10px, 0, 10px;
+    margin: 0, 10px, 0, 10px;
+}
+.footer-item{
+    display: inline-block;
+    align-items: center;
+
+}
+
+
+/*************************** added styles *****************
+
+/* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 5px;
+    overflow: auto;
+  }
+  
+  /* The footer is positioned at the bottom of the page
+  .footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100px;
+    background: #4e5d6c;
+  }
+  
+  /* The code styles the text at the bottom of the footer */
+  /* .footer > .bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    background: #1b3146;
+  } */ 
+  /* The styles for the parallax */
+  .hero {
+    position: relative;
+    height: 550px;
+    padding: 20px;
+    margin-top: 200px;
+    margin: 0;
+    color: white;
+    background-image: url("../images/asteroide-line.jpg"); 
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: cover;
+    animation: myanim 25s ease-in-out infinite;
+  }
+
+  .big-box {
+      background-color: grey;
+      margin:20px;
+      height:200px;
+  }
+  .small-boxes {
+      background-color: black;
+      margin:10px;
+  }
+
+
+
+
+
+  .navbar {
+    padding: 15px;
+    margin: 0;
+  }
+/* This CSS styles the ufo icon in the navbar */
+ .nav-ufo {
+    position: absolute;
+    bottom: 5px;
+    left: 150px;
+    width: 35px;
+    color: white;
+  }
+
+
+/**********************************************************
+
+
+
+
+
+/* media queries */
+
+@media screen and (max-width: 780px){
+    .navbar{
+        background-color:rgb(1, 1, 49);
+        font-size:0.7em;
+    }
+    .table{
+        font-size:0.8em;
+    } 
+    .footer-container{
+        background-color:rgb(1, 1, 49);
+        font-size:0.7em;
+    }  
+}
+
+@media screen and (max-width: 520px){
+    .navbar{
+        background-color:rgb(1, 1, 49);
+        font-size:0.6em;
+    }
+    .table{
+        font-size:0.6em;
+    }   
+}

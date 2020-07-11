@@ -22,52 +22,53 @@ db = SQLAlchemy(app)
 meteorites = create_classes(db)
 migrate = Migrate(app, db)
 
-# engine = create_engine(f'postgresql://{username}:{password}@localhost:5432/meteorites_db')
-# connection = engine.connect()
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-# Import results
-results = db.session.query(meteorites.id, meteorites.name).all()
+@app.route("/bar")
+def bar():
+        return "BAR"
 
-id = [result[0] for result in results]
-name = [result[1] for result in results]
+@app.route("/bubble")
+def bubble():
+        return "BUBBLE"
 
-data = [{'id':id,
-        'name':name}]
+@app.route("/map")
+def map():
+        return "MAP"
 
-data = jsonify(data)
+@app.route("/data")
+def data():
+        return "DATA"
 
-print(data)
+@app.route("/raw_data")
+def data_pull():
+        results = db.session.query(meteorites.id, meteorites.name, meteorites.recclass, meteorites.mass, meteorites.fall, meteorites.year, meteorites.reclat, meteorites.reclong, meteorites.maincategory).all()
 
-# @app.route('/')
-# def home():
-#     return render_template('index.html')
+        id = [result[0] for result in results]
+        name = [result[1] for result in results]
+        recclass = [result[2] for result in results]
+        mass = [result[3] for result in results]
+        fall = [result[4] for result in results]
+        year = [result[5] for result in results]
+        reclat = [result[6] for result in results]
+        reclong = [result[7] for result in results]
+        maincategory = [result[8] for result in results]
 
-# @app.route("/bar")
-# def bar():
-#     results = db.session.query(meteorites).all()
+        data = [{'id':id,
+                'name':name,
+                'recclass':recclass,
+                'mass':mass,
+                'fall':fall,
+                'year':year,
+                'reclat':reclat,
+                'reclong':reclong,
+                'maincategory':maincategory}]
 
-#     # hover_text = [result[0] for result in results]
-#     # lat = [result[1] for result in results]
-#     # lon = [result[2] for result in results]
+        data = jsonify(data)
 
-#     # pet_data = [{
-#     #     "type": "scattergeo",
-#     #     "locationmode": "USA-states",
-#     #     "lat": lat,
-#     #     "lon": lon,
-#     #     "text": hover_text,
-#     #     "hoverinfo": "text",
-#     #     "marker": {
-#     #         "size": 50,
-#     #         "line": {
-#     #             "color": "rgb(8,8,8)",
-#     #             "width": 1
-#     #         },
-#     #     }
-#     # }]
+        return data
 
-#     return jsonify(results)
-
-
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()

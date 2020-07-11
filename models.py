@@ -11,7 +11,7 @@ def create_classes(db):
         year = db.Column(db.Integer)
         reclat = db.Column(db.Float)
         reclong = db.Column(db.Float)
-        mainCategory = db.Column(db.String(64))
+        maincategory = db.Column(db.String(64))
 
         def __repr__(self):
             return '<meteorites %r>' % (self.name)
