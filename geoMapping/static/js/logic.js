@@ -54,7 +54,7 @@ d3.csv(data).then(function(response) {
     // Draw a circle for every location
     for (var i = 0; i < response.length; i++) {
 
-        var name = response[0].name;
+        var name = response[i].name;
         var lat = response[i].reclat;
         var lng = response[i].reclong;
         var mass = +response[i].mass;
@@ -74,14 +74,37 @@ d3.csv(data).then(function(response) {
                             Location: [${lat}, ${lng}]<br>
                             Mass: ${(mass/1000).toLocaleString('en-US')} Kg`
             );
+            
+            // Not a smart way to do it, but it's a proof of concept adding the wikipedia link to the popup
+            if (name === "Hoba"){
+                circleMarker.bindPopup(`Name: ${name} <br>
+                Location: [${lat}, ${lng}]<br>
+                Mass: ${(mass/1000).toLocaleString('en-US')} Kg <br>
+                <a href="https://en.wikipedia.org/wiki/Hoba_meteorite" target="_blank">Wiki</a>`
+               );      
+            }
+            if (name === "Gibeon"){
+                circleMarker.bindPopup(`Name: ${name} <br>
+                Location: [${lat}, ${lng}]<br>
+                Mass: ${(mass/1000).toLocaleString('en-US')} Kg <br>
+                <a href="https://en.wikipedia.org/wiki/Gibeon_(meteorite)" target="_blank">Wiki</a>`
+               );      
+            }
+            if (name === "Mbosi"){
+                circleMarker.bindPopup(`Name: ${name} <br>
+                Location: [${lat}, ${lng}]<br>
+                Mass: ${(mass/1000).toLocaleString('en-US')} Kg <br>
+                <a href="https://en.wikipedia.org/wiki/Mbozi_meteorite" target="_blank">Wiki</a>`
+               );      
+            }
 
             // Add hover feature
             circleMarker.on('mouseover', function (e) {
                 this.openPopup();
             });
-            circleMarker.on('mouseout', function (e) {
-                this.closePopup();
-            });
+            // circleMarker.on('mouseout', function (e) {
+            //     this.closePopup();
+            // });
         }
     }
 
