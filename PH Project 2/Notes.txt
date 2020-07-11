@@ -1,0 +1,5 @@
+Will need to update the data input portion when FLASK is fully complete.
+
+As part of that I know that I need to edit the columns to the ones we have chosen to keep.
+
+I plan on adding filters for each column.
