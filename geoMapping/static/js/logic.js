@@ -1,6 +1,6 @@
 // Set the map center
 var myMap = L.map("map", {
-    center: [0, 0],
+    center: [20, -30],
     zoom: 3
   });
   
@@ -10,34 +10,43 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     tileSize: 512,
     maxZoom: 18,
     zoomOffset: -1,
-    id: "mapbox/streets-v11",
+    id: "mapbox/satellite-v9",
     accessToken: API_KEY
 }).addTo(myMap);
-  
-data = "static/data/Meteorite_Landings_WorkingDatavF.csv"
+
+// Define variables
+data = "static/data/Meteorite_Landings_WorkingDatavF.csv";
+largeMeteorite = 1000000;
+midMeteorite = 250000;
+
 
 // Create a color scale
-function magColorScale(arg) {
+function massColorScale(mass) {
 
-    if (0 <= arg && arg < 1) {
-        fillColor = "#32CD32";
+    if (mass >= largeMeteorite) {
+        fillColor = "#FD0F2B"; // red
     }
-    else if (1 <= arg && arg < 2) {
-        fillColor = "#7CFC00";
+    else if (mass >= midMeteorite) {
+        fillColor = "#FCFF00"; // yellow
     }
-    else if (2 <= arg && arg < 3) {
-        fillColor = "#FFA07A"; //lightsalmon
-    }
-    else if (3 <= arg && arg < 4) {
-        fillColor = "#E9967A"; //darksalmon
-    }
-    else if (4 <= arg && arg < 5) {
-        fillColor = "#DC143C"; //crimson
-    }
-    else if (arg >= 5) {
-        fillColor = "#800000"; //maroon
+    else {
+        fillColor = "#00FF40"; // lightgreen
     }
     return fillColor;
+}
+
+// A function for different circle radius size
+function circleRadius(mass) {
+    if (mass >= largeMeteorite) {
+        outputRadius = 10;
+    }
+    else if (mass >= midMeteorite) {
+        outputRadius = 6;
+    }
+    else {
+        outputRadius = 3;
+    }
+    return outputRadius;
 }
   
 d3.csv(data).then(function(response) {
@@ -45,47 +54,59 @@ d3.csv(data).then(function(response) {
     // Draw a circle for every location
     for (var i = 0; i < response.length; i++) {
 
+        var name = response[0].name;
         var lat = response[i].reclat;
         var lng = response[i].reclong;
-        var mass = response[i].mass;
+        var mass = +response[i].mass;
 
         if (location) {
-            var circle = L.circle([lat, lng], {
+            var circleMarker = L.circleMarker([lat, lng], {
+                            weight: 0.8,
                             color: "black",
-                            weight: 0.5,
-                            // fillColor: magColorScale(mass),
-                            fillOpacity: 0.75,
-                            radius: Math.log10(mass)
+                            fill: true,
+                            fillColor: massColorScale(mass), 
+                            fillOpacity: 0.7,
+                            radius: circleRadius(mass),
                         }).addTo(myMap);
                         
-            // Add a popup for every circle
-            circle.bindPopup(`Location: ${lat}, ${lng}<br>
-                              Mass: ${mass} g`);
+            // Add popup for every circle
+            circleMarker.bindPopup(`Name: ${name} <br>
+                            Location: [${lat}, ${lng}]<br>
+                            Mass: ${(mass/1000).toLocaleString('en-US')} Kg`
+            );
+
+            // Add hover feature
+            circleMarker.on('mouseover', function (e) {
+                this.openPopup();
+            });
+            circleMarker.on('mouseout', function (e) {
+                this.closePopup();
+            });
         }
     }
 
-    // // Add legend (Source: https://leafletjs.com/examples/choropleth/)
-    // var legend = L.control({position: 'bottomleft'});
+    // Add legend (Source: https://leafletjs.com/examples/choropleth/)
+    var legend = L.control({position: 'bottomleft'});
 
-    // legend.onAdd = function (map) {
+    legend.onAdd = function (map) {
 
-    //     var div = L.DomUtil.create('div', 'info legend'),
-    //         magLevels = [0, 1, 2, 3, 4, 5],
-    //         labels = [];
+        var div = L.DomUtil.create('div', 'info legend'),
+            massLevels = [0, midMeteorite, largeMeteorite],
+            labels = [];
 
-    //     // loop through our density intervals and generate a label with a colored square for each interval
-    //     for (var i = 0; i < magLevels.length; i++) {
-    //         div.innerHTML +=
-    //             '<i style="background:' + magColorScale(magLevels[i]) + '"></i> ' +
-    //             magLevels[i] + (magLevels[i + 1] ? '&ndash;' + magLevels[i + 1] + ' <br>' : '+');
-    //     }
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < massLevels.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + massColorScale(massLevels[i]) + '"></i>' +
+                massLevels[i]/ 1000 + (massLevels[i + 1] / 1000 ? '&ndash;' + massLevels[i + 1] / 1000+ ' <br>' : '+');
+        }
 
-    //     return div;
-    // };
+        return div;
+    };
 
-    // legend.addTo(myMap);
+    legend.addTo(myMap);
     
 }).catch(function(error) 
             {return console.log(error);}
         );
-  
+
