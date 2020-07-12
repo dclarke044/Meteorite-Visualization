@@ -3,7 +3,6 @@ var button = d3.select("#button");
 var reset = d3.select("#reset-button");
 // Select the form
 var form = d3.select("#form");
-
 // Create event handlers 
 button.on("click", runEnter);
 form.on("submit",runEnter);
