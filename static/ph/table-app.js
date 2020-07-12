@@ -10,6 +10,14 @@ reset.on("click", runReset);
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
+url = "/raw-data"
+d3.json(url).then(function(response) {
+  console.log(response);
+}).catch(function(error) 
+{return console.log(error);}
+);
+
+
 console.log(data);
 
 data.forEach((meteorite) => {
