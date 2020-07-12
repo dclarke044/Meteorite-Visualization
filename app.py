@@ -45,30 +45,13 @@ def data():
 @app.route("/raw-data")
 def data_pull():
         results = db.session.query(meteorites.id, meteorites.name, meteorites.recclass, meteorites.mass, meteorites.fall, meteorites.year, meteorites.reclat, meteorites.reclong, meteorites.maincategory).all()
-
-        id = [result[0] for result in results]
-        name = [result[1] for result in results]
-        recclass = [result[2] for result in results]
-        mass = [result[3] for result in results]
-        fall = [result[4] for result in results]
-        year = [result[5] for result in results]
-        reclat = [result[6] for result in results]
-        reclong = [result[7] for result in results]
-        maincategory = [result[8] for result in results]
-
-        data = [{'id':id,
-                'name':name,
-                'recclass':recclass,
-                'mass':mass,
-                'fall':fall,
-                'year':year,
-                'reclat':reclat,
-                'reclong':reclong,
-                'maincategory':maincategory}]
-
-        data = jsonify(data)
-
-        return data
+        # initialize dictionary 
+        data = []
+        for result in results:
+                d = {"id":result[0], "name":result[1], "recclass" : result[2], "mass" : result[3], "fall" : result[4], "year" : result[5], "reclat" : result[6], "reclong" : result[7], "maincategory" : result[8]} 
+                data.append(d)
+        json_data = jsonify(data)
+        return json_data
 
 if __name__ == '__main__':
     app.run()
