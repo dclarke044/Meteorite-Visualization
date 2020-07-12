@@ -28,15 +28,15 @@ def home():
 
 @app.route("/bar")
 def bar():
-        return "BAR"
+        return render_template('barchart.html')
 
 @app.route("/bubble")
 def bubble():
-        return "BUBBLE"
+        return render_template('bubblechart.html')
 
 @app.route("/map")
 def map():
-        return "MAP"
+        return render_template('impactmap.html')
 
 @app.route("/data-table")
 def data():
