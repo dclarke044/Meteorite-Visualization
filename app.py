@@ -38,11 +38,11 @@ def bubble():
 def map():
         return "MAP"
 
-@app.route("/data")
+@app.route("/data-table")
 def data():
-        return "DATA"
+        return render_template('data-table.html')
 
-@app.route("/raw_data")
+@app.route("/raw-data")
 def data_pull():
         results = db.session.query(meteorites.id, meteorites.name, meteorites.recclass, meteorites.mass, meteorites.fall, meteorites.year, meteorites.reclat, meteorites.reclong, meteorites.maincategory).all()
 

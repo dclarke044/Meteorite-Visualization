@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Meteorite Data</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/ph/data-table-style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Meteorite Data</a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero text-center">
+      <h1>Meteorite Data</h1>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-12">
+          <div id="table-area" class="">
+            <table id="meteorite-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">GeoLocation</th>
+                  <th class="table-head">Fall Type</th>
+                  <th class="table-head">Meteorite ID</th>
+                  <th class="table-head">Mass in Grams</th>
+                  <th class="table-head">Meteorite Name</th>
+                  <th class="table-head">Meteorite Name Type</th>
+                  <th class="table-head">Meteorite Class</th>
+                  <th class="table-head">Latitude</th>
+                  <th class="table-head">Longitude</th>
+                  <th class="table-head">Year</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <span class="bottom">Meteorite Data (Property of NASA) | Photo by Michał Mancewicz on Unsplash</span>
+    </footer>
+  </div>
+  <script src="static/ph/table-data.js"></script>
+  <script src="static/ph/table-app.js"></script>
+</body>
+</html>
