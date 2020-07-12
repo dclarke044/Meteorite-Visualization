@@ -68,13 +68,8 @@ html body{
 }
 
 .middle-container{ 
-<<<<<<< HEAD
     padding: 0px;
     margin: 0px;
-=======
-    padding: 10px;
-    margin: 10px;
->>>>>>> 1f34603f2302d2ad100141d25c8db840375dcc0a
 } 
 
 .page-body {
@@ -127,17 +122,13 @@ html body{
     opacity: 0.8;
     transition: 0.5s;
 }
-<<<<<<< HEAD
 .index-graph-title {
     color: black;
 }
-=======
->>>>>>> 1f34603f2302d2ad100141d25c8db840375dcc0a
 
 .footer-container{
     display: flex;
     flex-basis: 100%;
-<<<<<<< HEAD
     min-height: 80px;
     background-color: #23415c;
     color: white;
@@ -163,23 +154,6 @@ html body{
     align-items: center;
 
 } */
-=======
-    min-height: 70px;
-    background-color: #23415c;
-    color: white;
-    align-items: center;
-    font-size: 14px;
-    justify-content: space-evenly;
-    flex-flow: block;
-    padding: 0, 10px, 0, 10px;
-    margin: 0, 10px, 0, 10px;
-}
-.footer-item{
-    display: inline-block;
-    align-items: center;
-
-}
->>>>>>> 1f34603f2302d2ad100141d25c8db840375dcc0a
 
 
 /*************************** added styles *****************
@@ -214,30 +188,19 @@ html body{
   /* The styles for the parallax */
   .hero {
     position: relative;
-<<<<<<< HEAD
     height: 600px;
-=======
-    height: 550px;
->>>>>>> 1f34603f2302d2ad100141d25c8db840375dcc0a
     padding: 20px;
     margin-top: 200px;
     margin: 0;
     color: white;
-<<<<<<< HEAD
     background-image: url("/images/asteroide-line.jpg"); 
     background-attachment: fixed;
     background-position: bottom center;
     background-repeat: no-repeat;
-=======
-    background-image: url("../images/asteroide-line.jpg"); 
-    background-attachment: fixed;
-    background-position: bottom center;
->>>>>>> 1f34603f2302d2ad100141d25c8db840375dcc0a
     background-size: cover;
     animation: myanim 25s ease-in-out infinite;
   }
 
-<<<<<<< HEAD
   @keyframes myanim{
     0%, 100%{
       background-image: url('../images/asteroid-grey.png');
@@ -258,8 +221,6 @@ html body{
 
 
 
-=======
->>>>>>> 1f34603f2302d2ad100141d25c8db840375dcc0a
   .big-box {
       background-color: grey;
       margin:20px;
