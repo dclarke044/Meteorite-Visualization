@@ -217,8 +217,77 @@ html body{
   }
 
 
+  .hero {
+    position: relative;
+    height: 550px;
+    padding: 20px;
+    margin-top: 200px;
+    margin: 0;
+    color: white;
+    background-image: url("../images/asteroide-line.jpg"); 
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: cover;
+    animation: myanim 25s ease-in-out infinite;
+  }
+
+  .hero h1 {
+    margin-top: 150px;
+    font-size: 1.5rem;
+    animation: title 20s forwards alternate-reverse;
+    animation-iteration-count: infinite;
+  }
+  
+  .hero h3 {
+    margin-top: 70px;
+    font-size: 1rem;
+    animation: title 30s forwards alternate-reverse;
+    animation-iteration-count: infinite;
+  }
+  
+  .hero p {
+    margin-top: 40px;
+    font-size: 1rem;
+    animation: subtitle 35s forwards alternate-reverse;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+  }
 
 
+
+/* keyframe animations which will be used to animate the title */
+@keyframes title {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      font-size: 3.0rem;
+      opacity: 1;
+    }
+  }
+
+  
+  @keyframes smaller-title {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      font-size: 2.0rem;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes subtitle {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1.2;
+    }
+  }
 
 
   .big-box {
