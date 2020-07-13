@@ -5,24 +5,47 @@
   <meta charset="utf-8">
   <title>Meteorite Data</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css"> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="static/ph/data-table-style.css">
 </head>
 
 <body>
   <div class="wrapper">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Meteorite Data</a>
-        </div>
-      </div>
-    </nav>
+    <div class="navbar-container navbar-custom">
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <a class="navbar-brand" href="/">METEORITES LANDING</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Charts
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="map">Impact Map</a>
+                      <a class="dropdown-item" href="bubble">Bubble Chart</a>
+                      <a class="dropdown-item" href="bar">Bar Chart</a>
+                  </div>
+              </li> 
+    
+              <li class="nav-item active">
+                <a class="nav-link" href="data-table">Data <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+        </div>    
+      </nav>
+      <!-- end of navbar -->
+    </div>
     <div class="hero text-center">
       <h1>Meteorite Data</h1>
     </div>
@@ -54,7 +77,8 @@
       <span class="bottom">Meteorite Data (Property of NASA) | Photo by Michał Mancewicz on Unsplash</span>
     </footer>
   </div>
-  <script src="static/ph/data.json"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="static/ph/table-data.js"></script>
   <script src="static/ph/table-app.js"></script>
 </body>
