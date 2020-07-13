@@ -9,7 +9,7 @@
     <title>Meteorite Bubble Chart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
-   <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 
@@ -30,9 +30,9 @@
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Charts
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="impactmap.html">Impact Map</a>
-                  <a class="dropdown-item" href="bubblechart.html">Bubble Chart</a>
-                  <a class="dropdown-item" href="barchart.html">Bar Chart</a>
+                  <a class="dropdown-item" href="/impactmap">Impact Map</a>
+                  <a class="dropdown-item" href="/bubble">Bubble Chart</a>
+                  <a class="dropdown-item" href="/bar">Bar Chart</a>
                   <!-- <a class="dropdown-item" href="windspeed.html">Wind Speed</a> -->
               </div>
           </li> 
@@ -40,7 +40,7 @@
             <a class="nav-link" href="comparison.html">Comparison <span class="sr-only">(current)</span></a>
           </li> -->
           <li class="nav-item active">
-            <a class="nav-link" href="data.html">Data <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/data">Data <span class="sr-only">(current)</span></a>
           </li>
         </ul>
     </div>    
@@ -75,19 +75,19 @@
   
   // append the svg object to the body of the page
   var svg = d3.select("#my_dataviz")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
   
   //Read the data
   d3.json("/raw-data", function(data) {
   
       // List of groups (here I have one group per column)
       var allGroup = d3.map(data, function(d){return(d.recclass)}).keys()
-  
+
       // add the options to the button
       d3.select("#selectButton")
         .selectAll('myOptions')
@@ -99,12 +99,12 @@
   
       // A color scale: one color for each group
       var myColor = d3.scaleOrdinal()
-        .domain(allGroup)
-        .range(d3.schemeSet1);
+      .domain(allGroup)
+      .range(d3.schemeSet1);
   
       // Add X axis --> it is a date format
       var x = d3.scaleLinear()
-        .domain([1750, 2015])
+        .domain(d3.extent(data, function(d) { return d.year; }))
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -144,13 +144,17 @@
       tooltip
         .style("opacity", 1)
         .html("RECCLASS: " + d.recclass + "  NAME: " + d.name + "  MASS(g): " + d.mass + "  YEAR: " + d.year)
-        .style("left", (d3.mouse(this)[0]+30) + "px")
-        .style("top", (d3.mouse(this)[1]+30) + "px")
+        .style("left", (d3.mouse(this)[0]+100) + "px")
+        .style("top", (d3.mouse(this)[1]+100) + "px")
+        .style("right", (d3.mouse(this)[2]+100) + "px")
+        .style("bottom", (d3.mouse(this)[3]+100) + "px")
     }
     var moveTooltip = function(d) {
       tooltip
-        .style("left", (d3.mouse(this)[0]+30) + "px")
-        .style("top", (d3.mouse(this)[1]+30) + "px")
+        .style("left", (d3.mouse(this)[0]+100) + "px")
+        .style("top", (d3.mouse(this)[1]+100) + "px")
+        .style("right", (d3.mouse(this)[2]+100) + "px")
+        .style("bottom", (d3.mouse(this)[3]+100) + "px")
     }
     var hideTooltip = function(d) {
       tooltip
@@ -176,7 +180,24 @@
     var noHighlight = function(d){
       d3.selectAll(".bubbles").style("opacity", 1)
     }
-  
+
+  // Add dots
+  var line = svg
+    .append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.recclass==allGroup[163]}))
+    .enter()
+    .append("circle")
+      .attr("class", function(d) { return "bubbles " + d.recclass })
+      .attr("cx", function (d) { return x(d.year); } )
+      .attr("cy", function (d) { return y(d.mass); } )
+      .attr("r", function (d) { return z(d.mass); } )
+      .style("fill", function (d) { return myColor(d.recclass); } )
+    // -3- Trigger the functions for hover
+    .on("mouseover", showTooltip )
+    .on("mousemove", moveTooltip )
+    .on("mouseleave", hideTooltip )
+    
     // A function that update the chart
     function update(selectedGroup) {
   
@@ -184,19 +205,19 @@
       var dataFilter = data.filter(function (d) { return d.recclass == selectedGroup })
   
       // Give these new data to update line
-      svg.append('g')
-      .selectAll("dot")
-      .data(dataFilter)
-      .enter()
-      .append("circle")
-        .attr("class", function(d) { return "bubbles " + d.recclass })
-        .attr("cx", function (d) { return x(d.year); } )
-        .attr("cy", function (d) { return y(d.mass); } )
-        .attr("r", function (d) { return z(d.mass); } )
-        .style("fill", function (d) { return myColor(selectedGroup); } )
-      .on("mouseover", showTooltip )
-      .on("mousemove", moveTooltip )
-      .on("mouseleave", hideTooltip )
+        line
+          .data(dataFilter)
+          .transition()
+          .duration(1000)
+            .attr("class", function(d) { return "bubbles " + d.recclass })
+            .attr("cx", function (d) { return x(d.year); } )
+            .attr("cy", function (d) { return y(d.mass); } )
+            .attr("r", function (d) { return z(d.mass); } )
+        //.attr("fill", function(d){ return myColor(selectedGroup) })
+            .style("fill", function (d) { return myColor(selectedGroup); } )
+          .on("mouseover", showTooltip )
+          .on("mousemove", moveTooltip )
+          .on("mouseleave", hideTooltip )
     }
   
       // When the button is changed, run the updateChart function
