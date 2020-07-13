@@ -24,13 +24,14 @@ vLSpec = {
   "encoding": {
     "x": {
       "field": "year", "type": "nominal",
-      "axis": {"domain": false, "tickSize": 0, "labelAngle": "-45"} 
+      "axis": {"domain": false, "tickSize": 0, "labelAngle": "-45"},
+      "title": "Year",
     },
     "y": {
       "aggregate": "count", 
       "field": "maincategory",
       "type": "quantitative",
-      "title": "Year",
+      "title": "Count of Meteorites",
       // "stack": "center", "axis": null
     },
     "color": {
