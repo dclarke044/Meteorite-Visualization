@@ -1,7 +1,7 @@
 // Test that data is there and accurate
 meteoriteData = d3.json("/raw-data").then(function(data){
   console.log(data);
-  var year = data[0].year;
+  var year = data.year;
   console.log(year);
 })
 
@@ -23,13 +23,14 @@ vLSpec = {
   },
   "encoding": {
     "x": {
-      "field": "year", "type": "temporal",
-      "axis": {"domain": false, "format": "%Y", "tickSize": 0}
+      "field": "year", "type": "nominal",
+      "axis": {"domain": false, "tickSize": 0, "labelAngle": "-45"} 
     },
     "y": {
       "aggregate": "count", 
       "field": "maincategory",
       "type": "quantitative",
+      "title": "Year",
       // "stack": "center", "axis": null
     },
     "color": {
