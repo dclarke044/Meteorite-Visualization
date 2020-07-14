@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meteorite Bubble Chart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
+   <link rel="stylesheet" href="static/css/style.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
 
 </head>
 
@@ -70,8 +71,8 @@
   <script>
   // set the dimensions and margins of the graph
   var margin = {top: 40, right: 150, bottom: 60, left: 70},
-      width = 1300 - margin.left - margin.right,
-      height = 550 - margin.top - margin.bottom;
+      width = 1350 - margin.left - margin.right,
+      height = 530 - margin.top - margin.bottom;
   
   // append the svg object to the body of the page
   var svg = d3.select("#my_dataviz")
@@ -185,7 +186,7 @@
   var line = svg
     .append('g')
     .selectAll("dot")
-    .data(data.filter(function(d){return d.recclass==allGroup[163]}))
+    .data(data.filter(function(d){return d.recclass==allGroup[0]}))
     .enter()
     .append("circle")
       .attr("class", function(d) { return "bubbles " + d.recclass })
