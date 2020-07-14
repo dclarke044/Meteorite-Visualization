@@ -49,7 +49,7 @@
   </div>
   <div class="col-md-12 jumbotron text-center">
     <h1>Bubble Chart</h1>
-  <select id="selectButton" id="resetButton"></select>
+  <select id="selectButton" placeholder="Iron, IVB"></select>
   <div id="my_dataviz"></div>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
@@ -209,15 +209,15 @@
           .data(dataFilter)
           .transition()
           .duration(1000)
-            .attr("class", function(d) { return "bubbles " + d.recclass })
+            .attr("class", function(d) { return "bubbles " + selectedGroup })
             .attr("cx", function (d) { return x(d.year); } )
             .attr("cy", function (d) { return y(d.mass); } )
             .attr("r", function (d) { return z(d.mass); } )
         //.attr("fill", function(d){ return myColor(selectedGroup) })
             .style("fill", function (d) { return myColor(selectedGroup); } )
-          .on("mouseover", showTooltip )
-          .on("mousemove", moveTooltip )
-          .on("mouseleave", hideTooltip )
+          //.on("mouseover", showTooltip )
+          //.on("mousemove", moveTooltip )
+          //.on("mouseleave", hideTooltip )
     }
   
       // When the button is changed, run the updateChart function
