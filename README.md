@@ -40,3 +40,7 @@ We also needed to find a way to combine the classes into larger representative g
 Our first visualization shows each meteorite over time with the bubble size representing the mass in grams. This chart was created using Plotly.
 
 ![](static/images/BubbleChart1.PNG)
+
+### Bar Chart
+
+The second visualization shows the number of meteorites found by year. The bars are broken up by the main categories that were created in the data cleaning process. This chart was created using Vega-Lite.
