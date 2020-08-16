@@ -11,4 +11,7 @@ Prototype/Inspirations: https://github.com/EMENGH/Project-2/blob/master/proto_HT
 
 Link to Vega-Lite (The new JS Library): https://vega.github.io/vega-lite/
 
+### Methods Used
+* Data Cleaning
+* Data Visualization
 
