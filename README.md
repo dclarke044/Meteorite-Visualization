@@ -46,3 +46,8 @@ Our first visualization shows each meteorite over time with the bubble size repr
 The second visualization shows the number of meteorites found by year. The bars are broken up by the main categories that were created in the data cleaning process. This chart was created using Vega-Lite.
 
 ![](static/images/barchart.png)
+
+### Impact Map
+
+Our final visualization shows each meteorite found on a map of the world. This was created using Leaflet.js. The size and color of each circle are representative of the mass of the meteorite. Some of the larger, more famous meteorites have a link to their Wikipedia page in the tooltip.
+
