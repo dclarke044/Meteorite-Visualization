@@ -44,3 +44,5 @@ Our first visualization shows each meteorite over time with the bubble size repr
 ### Bar Chart
 
 The second visualization shows the number of meteorites found by year. The bars are broken up by the main categories that were created in the data cleaning process. This chart was created using Vega-Lite.
+
+![](static/images/barchart.png)
