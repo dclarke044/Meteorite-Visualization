@@ -51,3 +51,4 @@ The second visualization shows the number of meteorites found by year. The bars 
 
 Our final visualization shows each meteorite found on a map of the world. This was created using Leaflet.js. The size and color of each circle are representative of the mass of the meteorite. Some of the larger, more famous meteorites have a link to their Wikipedia page in the tooltip.
 
+![](static/images/map.PNG)
