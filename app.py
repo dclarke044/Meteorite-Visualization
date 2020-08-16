@@ -43,6 +43,7 @@ def data():
         return render_template('data-table.html')
 
 @app.route("/raw-data")
+# Query to pull in data from posgres database
 def data_pull():
         results = db.session.query(meteorites.id, meteorites.name, meteorites.recclass, meteorites.mass, meteorites.fall, meteorites.year, meteorites.reclat, meteorites.reclong, meteorites.maincategory).all()
         # initialize dictionary 
