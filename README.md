@@ -30,3 +30,6 @@ Link to Vega-Lite (The new JS Library): https://vega.github.io/vega-lite/
 * Flask
 * PostGres
 
+## Project Description
+
+In the data cleaning process we ran into some issues with the size of the dataset. We decided to eliminate all meteorites with numbers in the name. Those were just smaller pieces of broken meteorites that were already represented in the data. Also, their sizes were too small to include in some of the visualizations that we were preparing.
