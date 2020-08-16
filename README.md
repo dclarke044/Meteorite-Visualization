@@ -38,3 +38,5 @@ We also needed to find a way to combine the classes into larger representative g
 
 ### Bubble Chart
 Our first visualization shows each meteorite over time with the bubble size representing the mass in grams. This chart was created using Plotly.
+
+![](static/images/BubbleChart1.PNG)
