@@ -21,6 +21,7 @@ db = SQLAlchemy(app)
 meteorites = create_classes(db)
 migrate = Migrate(app, db)
 
+#Create routes for each page
 @app.route('/')
 def home():
     return render_template('index.html')
