@@ -15,3 +15,18 @@ Link to Vega-Lite (The new JS Library): https://vega.github.io/vega-lite/
 * Data Cleaning
 * Data Visualization
 
+### Technologies
+* Python
+* Pandas
+* Jupyter
+* Javascript
+* D3
+* HTML
+* CSS
+* Vega-Lite
+* Leaflet
+* Plotly
+* DataTables
+* Flask
+* PostGres
+
