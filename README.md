@@ -28,7 +28,7 @@ Link to Vega-Lite (The new JS Library): https://vega.github.io/vega-lite/
 * Plotly
 * DataTables
 * Flask
-* PostGres
+* PostgreSQL
 
 ## Project Description
 
