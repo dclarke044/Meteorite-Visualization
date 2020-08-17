@@ -55,7 +55,7 @@ MarkupSafe==1.1.1
 # matplotlib @ file:///C:/ci/matplotlib-base_1592846129657/work
 mistune==0.8.4
 mkl-fft
-mkl-random==1.1.1
+mkl-random
 mkl-service==2.3.0
 mrjob==0.7.3
 nbconvert==5.6.1
