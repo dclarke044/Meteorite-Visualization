@@ -12,11 +12,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from models import create_classes
 
-from config import username, password
+# from config import username, password
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{username}:{password}@localhost:5432/meteorites_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/meteorites_db'
 db = SQLAlchemy(app)
 meteorites = create_classes(db)
 migrate = Migrate(app, db)
