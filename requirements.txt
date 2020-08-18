@@ -7,6 +7,7 @@ decorator==4.4.2
 Flask==1.1.2
 Flask-Migrate==2.5.3
 Flask-SQLAlchemy==2.4.4
+gunicorn
 # ipykernel @ file:///C:/ci/ipykernel_1596206775157/work/dist/ipykernel-5.3.4-py3-none-any.whl
 # ipython @ file:///C:/ci/ipython_1593446240034/work
 ipython-genutils==0.2.0
